@@ -1,23 +1,23 @@
-const BADGE_CLR = {
-  "Bestseller":   "#2d4a2d",
-  "New":          "#1a2d4a",
-  "Editor's Pick":"#4a2d1a",
-  "Limited":      "#4a1a1a",
-  "Popular":      "#3d2d4a",
+import { Badge as ShadcnBadge } from "@/components/ui/badge";
+
+const BADGE_STYLES = {
+  Bestseller: "bg-green-900 text-stone-100 hover:bg-green-900",
+  New: "bg-blue-900 text-stone-100 hover:bg-blue-900",
+  "Editor's Pick": "bg-orange-900 text-stone-100 hover:bg-orange-900",
+  Limited: "bg-red-900 text-stone-100 hover:bg-red-900",
+  Popular: "bg-purple-900 text-stone-100 hover:bg-purple-900",
 };
 
 export default function Badge({ text }) {
   return (
-    <span
-      style={{
-        position: "absolute", top: 12, left: 12, zIndex: 2,
-        background: BADGE_CLR[text] || "#2d2d2d",
-        color: "#f5f2ed",
-        fontSize: 9, letterSpacing: ".12em", textTransform: "uppercase",
-        padding: "3px 9px", fontFamily: "var(--fb)",
-      }}
+    <ShadcnBadge
+      className={`
+        absolute top-3 left-3 z-10 rounded-none
+        text-[9px] tracking-widest uppercase font-normal
+        ${BADGE_STYLES[text] || "bg-stone-800 text-stone-100 hover:bg-stone-800"}
+      `}
     >
       {text}
-    </span>
+    </ShadcnBadge>
   );
 }
