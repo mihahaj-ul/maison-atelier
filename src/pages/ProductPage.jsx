@@ -24,7 +24,7 @@ export default function ProductPage({ onAddToCart }) {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
   const product = PRODUCTS.find((p) => p.id === Number(id));
 
   const [qty, setQty] = useState(1);
