@@ -1,100 +1,145 @@
-import { Icon, IC } from "../utils/icons";
+import { ShoppingBag, X, Minus, Plus, Trash2, ArrowRight } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
-export default function CartPanel({ cart, isMobile, onClose, onUpdateQty, onRemove }) {
+export default function CartPanel({
+  cart,
+  isMobile,
+  onClose,
+  onUpdateQty,
+  onRemove,
+}) {
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
 
   return (
-    <>
-      {/* Overlay */}
-      <div
-        className="overlay"
-        onClick={onClose}
-        style={{ position: "fixed", inset: 0, background: "rgba(15,14,12,.5)", zIndex: 60, backdropFilter: "blur(2px)" }}
-      />
-
-      {/* Panel */}
-      <div
-        className={`cart-panel ${isMobile ? "slide-u" : "slide-r"}`}
-        style={{
-          position: "fixed",
-          ...(isMobile
-            ? { left: 0, right: 0, bottom: 0, maxHeight: "88vh" }
-            : { right: 0, top: 0, bottom: 0, width: "min(420px,100vw)", borderLeft: "1px solid var(--border)" }
-          ),
-          background: "var(--white)", zIndex: 61,
-          display: "flex", flexDirection: "column",
-        }}
+    <Sheet open onOpenChange={onClose}>
+      <SheetContent
+        side={isMobile ? "bottom" : "right"}
+        className={`
+          flex flex-col p-0 bg-stone-50 border-stone-300
+          ${isMobile ? "h-[88vh] rounded-t-2xl" : "w-full max-w-md"}
+        `}
       >
-        {/* Drag handle (mobile only) */}
-        {isMobile && (
-          <div style={{ width: 40, height: 4, background: "var(--border)", borderRadius: 2, margin: "12px auto 0", flexShrink: 0 }} />
-        )}
-
         {/* Header */}
-        <div style={{ padding: isMobile ? "14px 18px 12px" : "24px 26px 16px", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
-          <div>
-            <h2 style={{ fontFamily: "var(--fd)", fontSize: isMobile ? 21 : 25, fontWeight: 400 }}>Your Bag</h2>
-            <p style={{ fontSize: 11, color: "var(--muted)", marginTop: 1 }}>{count} {count === 1 ? "item" : "items"}</p>
+        <SheetHeader className="px-5 md:px-7 pt-5 pb-4 border-b border-stone-300 shrink-0">
+          <div className="flex items-center justify-between">
+            <div>
+              <SheetTitle className="font-display font-normal text-2xl text-stone-950">
+                Your Bag
+              </SheetTitle>
+              <p className="text-[11px] text-stone-500 mt-0.5">
+                {count} {count === 1 ? "item" : "items"}
+              </p>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-stone-200 rounded-none"
+              onClick={onClose}
+            >
+              <X size={19} />
+            </Button>
           </div>
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", padding: 8 }}>
-            <Icon d={IC.close} size={19} />
-          </button>
-        </div>
+        </SheetHeader>
 
         {/* Items */}
-        <div style={{ flex: 1, overflowY: "auto", padding: "4px 0" }}>
+        <ScrollArea className="flex-1">
           {cart.length === 0 ? (
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: 200, gap: 14, color: "var(--muted)" }}>
-              <Icon d={IC.bag} size={38} sw={1} />
-              <p style={{ fontFamily: "var(--fd)", fontSize: 19, fontStyle: "italic" }}>Your bag is empty</p>
-              <p style={{ fontSize: 12, letterSpacing: ".06em" }}>Discover something beautiful</p>
+            <div className="flex flex-col items-center justify-center h-48 gap-3 text-stone-500">
+              <ShoppingBag size={38} strokeWidth={1} />
+              <p className="font-display text-lg italic">Your bag is empty</p>
+              <p className="text-xs tracking-wide">
+                Discover something beautiful
+              </p>
             </div>
-          ) : cart.map(item => (
-            <div
-              key={item.id}
-              className="scale-in"
-              style={{ display: "flex", gap: 13, padding: isMobile ? "13px 18px" : "15px 26px", borderBottom: "1px solid var(--border)" }}
-            >
-              <img src={item.image} alt={item.name} style={{ width: isMobile ? 64 : 72, height: isMobile ? 80 : 90, objectFit: "cover", flexShrink: 0 }} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontSize: 10, letterSpacing: ".15em", color: "var(--gold)", textTransform: "uppercase", marginBottom: 3 }}>{item.category}</p>
-                <p style={{ fontFamily: "var(--fd)", fontSize: 15, fontWeight: 400, lineHeight: 1.3 }}>{item.name}</p>
-                <p style={{ fontFamily: "var(--fd)", fontSize: 16, fontWeight: 500, marginTop: 4 }}>${item.price}</p>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 9 }}>
-                  {/* Qty control */}
-                  <div style={{ display: "flex", alignItems: "center", border: "1px solid var(--border)" }}>
-                    <button onClick={() => onUpdateQty(item.id, item.qty - 1)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px 9px" }}>
-                      <Icon d={IC.minus} size={13} />
-                    </button>
-                    <span style={{ fontSize: 13, padding: "4px 6px", minWidth: 24, textAlign: "center" }}>{item.qty}</span>
-                    <button onClick={() => onUpdateQty(item.id, item.qty + 1)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px 9px" }}>
-                      <Icon d={IC.plus} size={13} />
-                    </button>
+          ) : (
+            cart.map((item) => (
+              <div key={item.id}>
+                <div className="flex gap-3 px-5 md:px-7 py-4">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-20 md:w-18 md:h-24 object-cover shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] tracking-[0.15em] text-amber-600 uppercase mb-1">
+                      {item.category}
+                    </p>
+                    <p className="font-display text-base font-normal leading-snug">
+                      {item.name}
+                    </p>
+                    <p className="font-display text-lg font-medium mt-1">
+                      ${item.price}
+                    </p>
+                    <div className="flex items-center gap-2.5 mt-2.5">
+                      {/* Qty control */}
+                      <div className="flex items-center border border-stone-300">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-7 w-8 rounded-none hover:bg-stone-200"
+                          onClick={() => onUpdateQty(item.id, item.qty - 1)}
+                        >
+                          <Minus size={13} />
+                        </Button>
+                        <span className="text-sm px-1.5 min-w-6 text-center">
+                          {item.qty}
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-7 w-8 rounded-none hover:bg-stone-200"
+                          onClick={() => onUpdateQty(item.id, item.qty + 1)}
+                        >
+                          <Plus size={13} />
+                        </Button>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7 rounded-none hover:bg-stone-200 text-stone-500"
+                        onClick={() => onRemove(item.id)}
+                      >
+                        <Trash2 size={14} />
+                      </Button>
+                    </div>
                   </div>
-                  <button onClick={() => onRemove(item.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "var(--muted)", padding: 4 }}>
-                    <Icon d={IC.trash} size={14} />
-                  </button>
                 </div>
+                <Separator className="bg-stone-200" />
               </div>
-            </div>
-          ))}
-        </div>
+            ))
+          )}
+        </ScrollArea>
 
         {/* Footer */}
         {cart.length > 0 && (
-          <div style={{ padding: isMobile ? "14px 18px 22px" : "20px 26px", borderTop: "1px solid var(--border)", flexShrink: 0 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 11, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--muted)" }}>Subtotal</span>
-              <span style={{ fontFamily: "var(--fd)", fontSize: 20, fontWeight: 500 }}>${total.toFixed(2)}</span>
+          <div className="px-5 md:px-7 py-5 border-t border-stone-300 shrink-0">
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-[11px] tracking-widest uppercase text-stone-500">
+                Subtotal
+              </span>
+              <span className="font-display text-xl font-medium">
+                ${total.toFixed(2)}
+              </span>
             </div>
-            <p style={{ fontSize: 11, color: "var(--muted)", marginBottom: 14 }}>Shipping & taxes at checkout</p>
-            <button className="btn-dark" style={{ width: "100%", justifyContent: "center", padding: "13px 20px" }}>
-              Checkout <Icon d={IC.arrow} size={14} />
-            </button>
+            <p className="text-[11px] text-stone-500 mb-4">
+              Shipping & taxes at checkout
+            </p>
+            <Button className="w-full rounded-none bg-stone-950 hover:bg-amber-600 text-stone-50 uppercase tracking-widest text-xs py-5 gap-2">
+              Checkout
+              <ArrowRight size={14} />
+            </Button>
           </div>
         )}
-      </div>
-    </>
+      </SheetContent>
+    </Sheet>
   );
 }
