@@ -1,68 +1,115 @@
+import { X, Check, SlidersHorizontal } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { CATEGORIES } from "../data/products";
-import { Icon, IC } from "../utils/icons";
 
-export default function FilterSheet({ category, setCategory, sortBy, setSortBy, count, onClose }) {
+export default function FilterSheet({
+  category,
+  setCategory,
+  sortBy,
+  setSortBy,
+  count,
+  onClose,
+}) {
+  const SORT_OPTIONS = [
+    { value: "default", label: "Featured" },
+    { value: "price-asc", label: "Price: Low to High" },
+    { value: "price-desc", label: "Price: High to Low" },
+    { value: "rating", label: "Top Rated" },
+  ];
+
   return (
-    <>
-      {/* Overlay */}
-      <div
-        className="overlay"
-        onClick={onClose}
-        style={{ position: "fixed", inset: 0, background: "rgba(15,14,12,.45)", zIndex: 61, backdropFilter: "blur(2px)" }}
-      />
+    <Sheet open onOpenChange={onClose}>
+      <SheetContent
+        side="bottom"
+        className="bg-stone-50 border-stone-300 rounded-t-2xl px-5 pb-9 max-h-[82vh] overflow-y-auto"
+      >
+        {/* Handle bar */}
+        <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mb-5 mt-1" />
 
-      {/* Sheet */}
-      <div className="filter-sheet">
-        <div style={{ width: 40, height: 4, background: "var(--border)", borderRadius: 2, margin: "0 auto 18px" }} />
+        {/* Header */}
+        <SheetHeader className="mb-5">
+          <div className="flex items-center justify-between">
+            <SheetTitle className="font-display font-normal text-2xl text-stone-950 flex items-center gap-2">
+              <SlidersHorizontal size={18} className="text-amber-600" />
+              Filter & Sort
+            </SheetTitle>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-stone-200 rounded-none"
+              onClick={onClose}
+            >
+              <X size={18} />
+            </Button>
+          </div>
+        </SheetHeader>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-          <h3 style={{ fontFamily: "var(--fd)", fontSize: 22, fontWeight: 400 }}>Filter & Sort</h3>
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", padding: 6 }}>
-            <Icon d={IC.close} size={18} />
-          </button>
-        </div>
-
-        {/* Categories */}
-        <p style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 11 }}>Category</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 22 }}>
-          {CATEGORIES.map(c => (
-            <button key={c} className={`fpill${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>
+        {/* Category */}
+        <p className="text-[10px] tracking-[0.2em] uppercase text-amber-600 mb-3">
+          Category
+        </p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {CATEGORIES.map((c) => (
+            <Button
+              key={c}
+              variant="outline"
+              onClick={() => setCategory(c)}
+              className={`
+                rounded-none text-xs uppercase tracking-widest h-8 px-4
+                ${
+                  category === c
+                    ? "bg-stone-950 text-stone-50 border-stone-950 hover:bg-stone-950 hover:text-stone-50"
+                    : "bg-transparent text-stone-950 border-stone-300 hover:bg-stone-200"
+                }
+              `}
+            >
               {c}
-            </button>
+            </Button>
           ))}
         </div>
+
+        <Separator className="bg-stone-200 mb-6" />
 
         {/* Sort */}
-        <p style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 11 }}>Sort By</p>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {[
-            ["default",    "Featured"],
-            ["price-asc",  "Price: Low to High"],
-            ["price-desc", "Price: High to Low"],
-            ["rating",     "Top Rated"],
-          ].map(([val, lbl]) => (
+        <p className="text-[10px] tracking-[0.2em] uppercase text-amber-600 mb-3">
+          Sort By
+        </p>
+        <div className="flex flex-col">
+          {SORT_OPTIONS.map(({ value, label }) => (
             <button
-              key={val}
-              onClick={() => setSortBy(val)}
-              style={{
-                background: "none", border: "none", cursor: "pointer", textAlign: "left",
-                fontFamily: "var(--fb)", fontSize: 14, padding: "12px 4px",
-                borderBottom: "1px solid var(--border)",
-                color: sortBy === val ? "var(--gold)" : "var(--ink)",
-                fontWeight: sortBy === val ? 400 : 300, letterSpacing: ".04em",
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-              }}
+              key={value}
+              onClick={() => setSortBy(value)}
+              className="flex items-center justify-between py-3 px-1 border-b border-stone-200 text-left font-sans text-sm font-light tracking-wide hover:text-amber-600 transition-colors"
             >
-              {lbl}
-              {sortBy === val && <Icon d={IC.check} size={15} stroke="var(--gold)" />}
+              <span
+                className={
+                  sortBy === value ? "text-amber-600" : "text-stone-950"
+                }
+              >
+                {label}
+              </span>
+              {sortBy === value && (
+                <Check size={15} className="text-amber-600" />
+              )}
             </button>
           ))}
         </div>
 
-        <button className="btn-dark" style={{ width: "100%", justifyContent: "center", marginTop: 22, padding: 14 }} onClick={onClose}>
+        {/* CTA */}
+        <Button
+          className="w-full mt-6 rounded-none bg-stone-950 hover:bg-amber-600 text-stone-50 uppercase tracking-widest text-xs py-5"
+          onClick={onClose}
+        >
           Show {count} pieces
-        </button>
-      </div>
-    </>
+        </Button>
+      </SheetContent>
+    </Sheet>
   );
 }
