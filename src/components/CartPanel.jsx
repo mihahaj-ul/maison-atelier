@@ -30,24 +30,12 @@ export default function CartPanel({
       >
         {/* Header */}
         <SheetHeader className="px-5 md:px-7 pt-5 pb-4 border-b border-stone-300 shrink-0">
-          <div className="flex items-center justify-between">
-            <div>
-              <SheetTitle className="font-display font-normal text-2xl text-stone-950">
-                Your Bag
-              </SheetTitle>
-              <p className="text-[11px] text-stone-500 mt-0.5">
-                {count} {count === 1 ? "item" : "items"}
-              </p>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:bg-stone-200 rounded-none"
-              onClick={onClose}
-            >
-              <X size={19} />
-            </Button>
-          </div>
+          <SheetTitle className="font-display font-normal text-2xl text-stone-950">
+            Your Bag
+          </SheetTitle>
+          <p className="text-[11px] text-stone-500 mt-0.5">
+            {count} {count === 1 ? "item" : "items"}
+          </p>
         </SheetHeader>
 
         {/* Items */}
