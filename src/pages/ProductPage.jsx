@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -22,6 +22,9 @@ import { PRODUCTS } from "../data/products";
 export default function ProductPage({ onAddToCart }) {
   const { id } = useParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const product = PRODUCTS.find((p) => p.id === Number(id));
 
   const [qty, setQty] = useState(1);
