@@ -34,21 +34,11 @@ export default function FilterSheet({
         <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mb-5 mt-1" />
 
         {/* Header */}
-        <SheetHeader className="mb-5">
-          <div className="flex items-center justify-between">
-            <SheetTitle className="font-display font-normal text-2xl text-stone-950 flex items-center gap-2">
-              <SlidersHorizontal size={18} className="text-amber-600" />
-              Filter & Sort
-            </SheetTitle>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:bg-stone-200 rounded-none"
-              onClick={onClose}
-            >
-              <X size={18} />
-            </Button>
-          </div>
+        <SheetHeader>
+          <SheetTitle className="font-display font-normal text-2xl text-stone-950 flex items-center gap-2">
+            <SlidersHorizontal size={18} className="text-amber-600" />
+            Filter & Sort
+          </SheetTitle>
         </SheetHeader>
 
         {/* Category */}

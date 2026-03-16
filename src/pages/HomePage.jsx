@@ -85,8 +85,8 @@ export default function HomePage({
         id="col"
         className={`max-w-340 mx-auto ${isMobile ? "px-3 py-7" : isTablet ? "px-5 py-11" : "px-7 py-14"}`}
       >
-        {/* Filter bar — desktop & tablet */}
-        {!isMobile && (
+        {/* Filter bar — desktop only */}
+        {!isMobile && !isTablet && (
           <div className="flex flex-wrap items-center justify-between gap-3 mb-9 pb-5 border-b border-stone-300">
             <div className="flex items-center gap-2 flex-1 overflow-x-auto scrollbar-none">
               <span className="text-[10px] tracking-[0.15em] uppercase text-stone-500 shrink-0">
@@ -98,13 +98,13 @@ export default function HomePage({
                   variant="outline"
                   onClick={() => setCategory(c)}
                   className={`
-                    rounded-none text-xs uppercase tracking-widest h-8 px-4 shrink-0
-                    ${
-                      category === c
-                        ? "bg-stone-950 text-stone-50 border-stone-950 hover:bg-stone-950 hover:text-stone-50"
-                        : "bg-transparent text-stone-950 border-stone-300 hover:bg-stone-200"
-                    }
-                  `}
+            rounded-none text-xs uppercase tracking-widest h-8 px-4 shrink-0
+            ${
+              category === c
+                ? "bg-stone-950 text-stone-50 border-stone-950 hover:bg-stone-950 hover:text-stone-50"
+                : "bg-transparent text-stone-950 border-stone-300 hover:bg-stone-200"
+            }
+          `}
                 >
                   {c}
                 </Button>
@@ -128,43 +128,20 @@ export default function HomePage({
           </div>
         )}
 
-        {/* Filter bar — mobile */}
-        {isMobile && (
-          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-stone-300">
-            <div className="flex items-center gap-2 flex-1 overflow-x-auto scrollbar-none">
-              {CATEGORIES.map((c) => (
-                <Button
-                  key={c}
-                  variant="outline"
-                  onClick={() => setCategory(c)}
-                  className={`
-                    rounded-none text-[11px] uppercase tracking-widest h-7 px-3 shrink-0
-                    ${
-                      category === c
-                        ? "bg-stone-950 text-stone-50 border-stone-950 hover:bg-stone-950 hover:text-stone-50"
-                        : "bg-transparent text-stone-950 border-stone-300 hover:bg-stone-200"
-                    }
-                  `}
-                >
-                  {c}
-                </Button>
-              ))}
-            </div>
+        {/* Filter button — tablet & mobile */}
+        {(isMobile || isTablet) && (
+          <div className="flex items-center justify-between mb-5 pb-4 border-b border-stone-300">
+            <p className="text-xs text-stone-500 tracking-wide">
+              {filtered.length} pieces
+            </p>
             <Button
               variant="outline"
               onClick={() => setFilterOpen(true)}
-              className="rounded-none text-[11px] uppercase tracking-widest h-7 px-3 shrink-0 border-stone-300 hover:bg-stone-200 gap-1.5"
+              className="rounded-none text-xs uppercase tracking-widest h-8 px-4 border-stone-300 hover:bg-stone-200 gap-2"
             >
-              <Filter size={12} /> Sort
+              <Filter size={13} /> Filter & Sort
             </Button>
           </div>
-        )}
-
-        {/* Result count — mobile */}
-        {isMobile && (
-          <p className="text-[11px] text-stone-500 mb-3 tracking-wide">
-            {filtered.length} pieces
-          </p>
         )}
 
         {/* Product grid */}
