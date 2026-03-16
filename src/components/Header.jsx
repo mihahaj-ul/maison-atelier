@@ -3,6 +3,7 @@ import { Search, X, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 
 export default function Header({
   isMobile,
@@ -30,14 +31,17 @@ export default function Header({
       <div className="max-w-340 mx-auto px-4 md:px-7">
         <div className="flex items-center justify-between gap-3 h-14 md:h-16">
           {/* Logo */}
-          <div className="font-display shrink-0">
-            <span className="italic text-xl md:text-2xl font-light tracking-wide">
+          <Link
+            to="/"
+            className="font-display shrink-0 text-left hover:opacity-70 transition-opacity"
+          >
+            <span className="italic text-xl md:text-2xl font-light tracking-wide block">
               MAISON
             </span>
             <span className="block text-[9px] tracking-[0.3em] uppercase text-amber-600 leading-none -mt-0.5">
               Atelier
             </span>
-          </div>
+          </Link>
 
           {/* Desktop search */}
           {!isMobile && (
