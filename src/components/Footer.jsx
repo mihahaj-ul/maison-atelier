@@ -1,11 +1,32 @@
+import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { CATEGORIES } from "../data/products";
-import { Link } from "react-router-dom";
 
 const LINKS = [
-  { title: "Shop", items: CATEGORIES.slice(1) },
-  { title: "Help", items: ["Sizing Guide", "Returns", "Shipping", "Contact"] },
-  { title: "Company", items: ["About", "Sustainability", "Careers", "Press"] },
+  {
+    title: "Shop",
+    items: CATEGORIES.slice(1).map((cat) => ({
+      label: cat,
+      to: "/",
+    })),
+  },
+  {
+    title: "Company",
+    items: [
+      { label: "About Us", to: "/about" },
+      { label: "FAQ", to: "/faq" },
+      { label: "Contact", to: "/contact" },
+    ],
+  },
+  {
+    title: "Help",
+    items: [
+      { label: "Wishlist", to: "/wishlist" },
+      { label: "Sizing Guide", to: "/faq" },
+      { label: "Returns", to: "/faq" },
+      { label: "Shipping", to: "/faq" },
+    ],
+  },
 ];
 
 export default function Footer({ isMobile, isTablet }) {
@@ -24,7 +45,7 @@ export default function Footer({ isMobile, isTablet }) {
         <div className={isMobile ? "col-span-2" : ""}>
           <Link
             to="/"
-            className="font-display text-xl font-light text-stone-100 mb-2.5"
+            className="font-display text-xl font-light text-stone-100 mb-2.5 block hover:opacity-70 transition-opacity"
           >
             <span className="italic">MAISON</span>
             <span className="text-[9px] tracking-[0.3em] text-amber-600 ml-1.5">
@@ -44,13 +65,13 @@ export default function Footer({ isMobile, isTablet }) {
             </h4>
             <ul className="flex flex-col gap-2.5">
               {col.items.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
                     className="text-xs text-stone-400 hover:text-stone-100 transition-colors duration-200"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,11 +82,10 @@ export default function Footer({ isMobile, isTablet }) {
       <Separator className="bg-stone-800 max-w-340 mx-auto" />
 
       {/* Bottom bar */}
-      <div className="max-w-340 mx-auto px-5 md:px-7 py-4 flex justify-between flex-wrap gap-2">
+      <div className="max-w-340 mx-auto px-5 md:px-7 py-4 flex justify-end">
         <p className="text-[10px] tracking-wide">
           © 2026 Maison Atelier. All rights reserved.
         </p>
-        <p className="text-[10px] tracking-wide">Free demo project</p>
       </div>
     </footer>
   );
