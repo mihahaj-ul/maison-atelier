@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ShoppingBag, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,10 +8,10 @@ export default function ProductCard({
   product,
   onView,
   onAddToCart,
+  onToggleWishlist,
+  isWished,
   delay = 0,
 }) {
-  const [wished, setWished] = useState(false);
-
   return (
     <Card
       className="group relative overflow-hidden rounded-none border border-stone-300 bg-stone-50 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
@@ -36,13 +35,13 @@ export default function ProductCard({
           className="absolute top-2.5 right-2.5 bg-stone-100/85 hover:bg-stone-100 backdrop-blur-sm rounded-none h-8 w-8"
           onClick={(e) => {
             e.stopPropagation();
-            setWished((w) => !w);
+            onToggleWishlist(product);
           }}
         >
           <Heart
             size={15}
             className={
-              wished
+              isWished
                 ? "fill-amber-600 stroke-amber-600"
                 : "fill-none stroke-stone-950"
             }
@@ -65,9 +64,7 @@ export default function ProductCard({
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xl font-medium text-stone-950">
-            ${product.price}
-          </span>
+          <span className="text-xl text-stone-950">${product.price}</span>
           <Button
             size="sm"
             className="rounded-none bg-stone-950 hover:bg-amber-600 text-stone-50 uppercase tracking-widest text-[11px] h-8 px-3 gap-1.5"

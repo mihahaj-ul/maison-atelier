@@ -17,6 +17,8 @@ export default function HomePage({
   onAddToCart,
   onUpdateQty,
   onRemove,
+  onToggleWishlist,
+  isWished,
 }) {
   const vw = useWidth();
   const isMobile = vw < 640;
@@ -170,6 +172,8 @@ export default function HomePage({
                 product={p}
                 onView={(product) => navigate(`/product/${product.id}`)}
                 onAddToCart={onAddToCart}
+                onToggleWishlist={onToggleWishlist}
+                isWished={isWished(p.id)}
                 delay={i * 45}
               />
             ))}

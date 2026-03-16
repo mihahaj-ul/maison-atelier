@@ -1,10 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import { useCart } from "./hooks/useCart";
+import { useWishlist } from "./hooks/useWishlist";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 
 export default function App() {
   const { cart, cartCount, addToCart, updateQty, removeItem } = useCart();
+  const {
+    wishlist,
+    wishlistCount,
+    isWished,
+    toggleWishlist,
+    removeFromWishlist,
+  } = useWishlist();
 
   return (
     <Routes>
@@ -17,6 +25,8 @@ export default function App() {
             onAddToCart={addToCart}
             onUpdateQty={updateQty}
             onRemove={removeItem}
+            onToggleWishlist={toggleWishlist}
+            isWished={isWished}
           />
         }
       />
