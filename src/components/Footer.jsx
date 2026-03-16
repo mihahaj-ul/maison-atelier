@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { CATEGORIES } from "../data/products";
+import { Link } from "react-router-dom";
 
 const LINKS = [
   { title: "Shop", items: CATEGORIES.slice(1) },
@@ -21,12 +22,15 @@ export default function Footer({ isMobile, isTablet }) {
       >
         {/* Brand */}
         <div className={isMobile ? "col-span-2" : ""}>
-          <div className="font-display text-xl font-light text-stone-100 mb-2.5">
+          <Link
+            to="/"
+            className="font-display text-xl font-light text-stone-100 mb-2.5"
+          >
             <span className="italic">MAISON</span>
             <span className="text-[9px] tracking-[0.3em] text-amber-600 ml-1.5">
               Atelier
             </span>
-          </div>
+          </Link>
           <p className="text-xs leading-relaxed font-light max-w-52">
             Thoughtfully curated fashion for those who dress with intention.
           </p>
