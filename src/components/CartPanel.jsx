@@ -44,6 +44,7 @@ export default function CartPanel({
   return (
     <>
       <Sheet open onOpenChange={onClose}>
+        x
         <SheetContent
           side={isMobile ? "bottom" : "right"}
           className={`
@@ -91,7 +92,7 @@ export default function CartPanel({
                       <p className="font-display text-base font-normal leading-snug">
                         {item.name}
                       </p>
-                      <p className="text-lg font-medium mt-1">${item.price}</p>
+                      <p className="text-lg font-medium mt-1">৳{item.price}</p>
                       <div className="flex items-center gap-2.5 mt-2.5">
                         {/* Qty control */}
                         <div className="flex items-center border border-stone-300">
@@ -141,7 +142,7 @@ export default function CartPanel({
                 <span className="text-[11px] tracking-widest uppercase text-stone-500">
                   Subtotal
                 </span>
-                <span className="text-xl font-medium">${total.toFixed(2)}</span>
+                <span className="text-xl font-medium">৳{total.toFixed(2)}</span>
               </div>
               <p className="text-[11px] text-stone-500 mb-4">
                 Shipping & taxes at checkout

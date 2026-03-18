@@ -124,7 +124,7 @@ export default function OrderConfirmationPage({ cart, onClearCart }) {
                         </p>
                       </div>
                       <p className="text-sm font-medium text-stone-950 shrink-0">
-                        ${(item.price * item.qty).toFixed(2)}
+                        ৳{(item.price * item.qty).toFixed(2)}
                       </p>
                     </div>
                     <Separator className="bg-stone-200" />
@@ -137,7 +137,7 @@ export default function OrderConfirmationPage({ cart, onClearCart }) {
                     Total
                   </span>
                   <span className="text-xl font-medium text-stone-950">
-                    ${total.toFixed(2)}
+                    ৳{total.toFixed(2)}
                   </span>
                 </div>
               </div>

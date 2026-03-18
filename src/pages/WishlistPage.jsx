@@ -101,7 +101,7 @@ export default function WishlistPage({
                       </span>
                     </div>
                     <p className="text-xl font-medium text-stone-950 mb-4">
-                      ${product.price}
+                      ৳{product.price}
                     </p>
 
                     <Separator className="bg-stone-200 mb-4" />

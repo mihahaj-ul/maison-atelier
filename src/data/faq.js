@@ -1,26 +1,26 @@
 export const FAQS = [
   {
-    category: "Orders & Shipping",
+    category: "Orders & Delivery",
     items: [
       {
-        question: "How long does shipping take?",
+        question: "How long does delivery take?",
         answer:
-          "Standard shipping takes 3–5 business days within Europe and 7–10 business days internationally. Express shipping options are available at checkout.",
+          "Standard delivery within Bangladesh takes 3–5 business days. Express delivery is available in 1–2 business days for Dhaka and major cities. Same-day delivery is available within Dhaka for orders placed before 12pm BST.",
       },
       {
-        question: "Do you offer free shipping?",
+        question: "Do you offer free delivery?",
         answer:
-          "Yes! We offer free standard shipping on all orders over $250. Orders below this threshold have a flat shipping fee of $12.",
+          "Yes! We offer free standard delivery on all orders over $5,000. Orders below this amount have a flat delivery fee of $150.",
       },
       {
         question: "Can I track my order?",
         answer:
-          "Absolutely. Once your order is dispatched you will receive a confirmation email with a tracking number and a link to follow your parcel in real time.",
+          "Absolutely. Once your order is dispatched you will receive a confirmation SMS and email with a tracking number and a link to follow your parcel in real time.",
       },
       {
-        question: "Do you ship internationally?",
+        question: "Do you deliver outside Bangladesh?",
         answer:
-          "Yes, we ship to over 40 countries worldwide. Shipping costs and delivery times vary by destination and are calculated at checkout.",
+          "Yes, we ship to selected countries including India, UK, USA, UAE, Malaysia, and more. International shipping costs and delivery times vary by destination and are calculated at checkout.",
       },
     ],
   },
@@ -30,22 +30,22 @@ export const FAQS = [
       {
         question: "What is your return policy?",
         answer:
-          "We accept returns within 30 days of delivery. Items must be unworn, unwashed, and in their original packaging with all tags attached.",
+          "We accept returns within 14 days of delivery. Items must be unworn, unwashed, and in their original packaging with all tags attached and in original condition.",
       },
       {
         question: "How do I start a return?",
         answer:
-          "Simply email us at returns@maisonatelier.com with your order number and reason for return. We will send you a prepaid return label within 24 hours.",
+          "Simply email us at returns@rajaatelier.com.bd or call us with your order number and reason for return. For Dhaka customers, we offer a complimentary collection service.",
       },
       {
         question: "How long do refunds take?",
         answer:
-          "Once we receive and inspect your return, refunds are processed within 3–5 business days. The funds will appear in your account within 5–10 business days depending on your bank.",
+          "Once we receive and inspect your return, refunds are processed within 3–5 business days via bKash, Nagad, or bank transfer depending on your original payment method.",
       },
       {
         question: "Can I exchange an item?",
         answer:
-          "Yes, exchanges are welcome for a different size or colour subject to availability. Please contact us and we will do our best to accommodate your request.",
+          "Yes, exchanges are welcome for a different size subject to availability. Please contact our team and we will arrange the exchange at no extra charge for Dhaka customers.",
       },
     ],
   },
@@ -55,17 +55,17 @@ export const FAQS = [
       {
         question: "How do I find my size?",
         answer:
-          "Each product page includes a detailed size guide with measurements in both cm and inches. We recommend measuring yourself and comparing to our size chart for the best fit.",
+          "Each product page includes a detailed size guide with measurements in both centimetres and inches. We recommend measuring your chest, waist, and hips and comparing to our size chart.",
       },
       {
-        question: "Do your clothes run true to size?",
+        question: "Do you offer bespoke or made-to-measure services?",
         answer:
-          "Most of our pieces run true to size. Where a garment has an intentionally oversized or relaxed fit, this is noted in the product description. When in doubt, size down.",
+          "Yes! We offer a bespoke and made-to-measure service for suits, blazers, sherwanis, and achkans. Visit our Banani showroom or contact us to arrange a consultation.",
       },
       {
         question: "Can I get personal styling advice?",
         answer:
-          "Yes! Email us at hello@maisonatelier.com or use our contact form and one of our team will be happy to help you find the right pieces and sizes for you.",
+          "Absolutely. Visit us at our Banani showroom, call us, or use our contact form and one of our expert stylists will be happy to help you put together the perfect look for any occasion.",
       },
     ],
   },
@@ -75,17 +75,17 @@ export const FAQS = [
       {
         question: "How should I care for my garments?",
         answer:
-          "Care instructions are included on the label of every garment and listed on each product page. Most of our natural fibre pieces recommend gentle hand washing or dry cleaning to preserve their quality.",
+          "Care instructions are included on the label of every garment. Most of our silk, muslin, and wool pieces recommend dry cleaning. Our cotton and linen pieces can be hand-washed in cool water.",
       },
       {
         question: "Are your products ethically made?",
         answer:
-          "Yes. We work exclusively with makers who meet our ethical standards — fair wages, safe working conditions, and sustainable practices. We visit our suppliers regularly to ensure these standards are maintained.",
+          "Yes. We are proud to source from Bangladeshi artisans and manufacturers who meet our strict ethical standards — fair wages, safe working conditions, and sustainable practices. We visit our suppliers regularly.",
       },
       {
         question: "Do you restock sold-out items?",
         answer:
-          "We occasionally restock popular pieces but our collections are intentionally limited. Sign up to our newsletter to be notified when a sold-out item becomes available again.",
+          "We occasionally restock popular pieces but our collections are intentionally limited to maintain exclusivity. Contact us or sign up to be notified when a sold-out item becomes available.",
       },
     ],
   },

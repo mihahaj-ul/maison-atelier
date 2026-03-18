@@ -4,22 +4,22 @@ export const CONTACT_INFO = [
   {
     icon: MapPin,
     title: "Visit Us",
-    lines: ["12 Rue du Faubourg", "Paris, France 75008"],
+    lines: ["House 12, Road 6, Block F", "Banani, Dhaka 1213, Bangladesh"],
   },
   {
     icon: Phone,
     title: "Call Us",
-    lines: ["+33 1 23 45 67 89", "Mon–Fri, 9am–6pm CET"],
+    lines: ["+880 1711-234567", "Sat–Thu, 10am–8pm BST"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    lines: ["hello@maisonatelier.com", "We reply within 24 hours"],
+    lines: ["hello@rajaatelier.com.bd", "We reply within 24 hours"],
   },
   {
     icon: Clock,
     title: "Opening Hours",
-    lines: ["Mon–Sat: 10am – 7pm", "Sunday: 12pm – 5pm"],
+    lines: ["Sat–Thu: 10am – 8pm", "Friday: 2pm – 8pm"],
   },
 ];
 
@@ -28,6 +28,7 @@ export const SUBJECTS = [
   "Order Issue",
   "Returns & Exchanges",
   "Sizing Help",
+  "Bespoke & Made to Measure",
   "Press & Collaboration",
   "Other",
 ];

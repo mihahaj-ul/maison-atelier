@@ -139,7 +139,7 @@ export default function CheckoutPage({ cart, onClearCart }) {
     <div className="bg-stone-100 min-h-screen">
       {/* Top bar */}
       <div className="bg-stone-950 text-stone-100 text-center py-1.5 px-4 text-[10px] tracking-[0.18em] uppercase">
-        Secure Checkout
+        RAJA Atelier — Secure Checkout
       </div>
 
       <div className="max-w-340 mx-auto px-5 md:px-7 py-10 md:py-16">

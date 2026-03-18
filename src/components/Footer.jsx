@@ -47,7 +47,7 @@ export default function Footer({ isMobile, isTablet }) {
             to="/"
             className="font-display text-xl font-light text-stone-100 mb-2.5 block hover:opacity-70 transition-opacity"
           >
-            <span className="italic">MAISON</span>
+            <span className="italic">RAJA</span>
             <span className="text-[9px] tracking-[0.3em] text-amber-600 ml-1.5">
               Atelier
             </span>
@@ -84,7 +84,7 @@ export default function Footer({ isMobile, isTablet }) {
       {/* Bottom bar */}
       <div className="max-w-340 mx-auto px-5 md:px-7 py-4 flex justify-end">
         <p className="text-[10px] tracking-wide">
-          © 2026 Maison Atelier. All rights reserved.
+          © 2026 RAJA Atelier. All rights reserved.
         </p>
       </div>
     </footer>

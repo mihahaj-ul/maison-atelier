@@ -64,7 +64,9 @@ export default function ProductCard({
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xl text-stone-950">${product.price}</span>
+          <span className="text-xl font-medium text-stone-950">
+            ${product.price.toLocaleString()}
+          </span>
           <Button
             size="sm"
             className="rounded-none bg-stone-950 hover:bg-amber-600 text-stone-50 uppercase tracking-widest text-[11px] h-8 px-3 gap-1.5"

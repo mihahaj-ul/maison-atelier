@@ -21,8 +21,9 @@ export default function AboutPage() {
           <em>intention</em>
         </h1>
         <p className="text-sm md:text-base font-light text-stone-400 max-w-xl mx-auto leading-relaxed">
-          Maison Atelier was founded on a simple belief — that what we wear
-          should be chosen carefully, worn often, and loved for a long time.
+          RAJA Atelier was founded on a simple belief — that the Bangladeshi
+          gentleman deserves clothing chosen carefully, worn with pride, and
+          loved for a long time.
         </p>
       </section>
 
@@ -34,19 +35,19 @@ export default function AboutPage() {
               How it began
             </p>
             <h2 className="font-display font-light text-3xl md:text-4xl mb-6 leading-snug">
-              A wardrobe built on fewer, better things
+              A wardrobe built on Bangladesh's finest traditions
             </h2>
             <p className="text-sm text-stone-600 font-light leading-relaxed mb-4">
-              Maison Atelier began in 2019 as a small edit of pieces that
-              Isabelle Laurent, our founder, couldn't find anywhere else —
-              garments that were beautifully made, quietly elegant, and built to
-              last. What started as a personal project quickly became a
-              community of like-minded dressers.
+              RAJA Atelier began in 2018 as Rahim Chowdhury's answer to a simple
+              question — why couldn't Bangladesh have its own luxury menswear
+              brand? Starting from a small showroom in Banani, Dhaka, with a
+              curated selection of suits and sherwanis, RAJA quickly became the
+              destination for the discerning Bangladeshi gentleman.
             </p>
             <p className="text-sm text-stone-600 font-light leading-relaxed">
-              Today we work with a small network of independent makers across
-              Europe and Asia, bringing their finest work to people who
-              appreciate the difference that quality makes.
+              Today we work with master artisans from Dhaka, Rajshahi, and
+              Sylhet, celebrating Bangladesh's extraordinary textile heritage
+              through the lens of contemporary luxury menswear.
             </p>
           </div>
           <div className="relative">
@@ -56,7 +57,7 @@ export default function AboutPage() {
               className="w-full aspect-3/4 object-cover"
             />
             <div className="absolute -bottom-4 -left-4 bg-amber-600 text-stone-50 px-6 py-4 hidden md:block">
-              <p className="font-display text-3xl font-light">2019</p>
+              <p className="font-display text-3xl font-light">2018</p>
               <p className="text-[10px] tracking-widest uppercase mt-0.5">
                 Founded
               </p>
@@ -130,7 +131,8 @@ export default function AboutPage() {
           Discover the collection
         </h2>
         <p className="text-sm text-stone-500 font-light max-w-sm mx-auto mb-8 leading-relaxed">
-          Twelve carefully chosen pieces for the considered wardrobe.
+          Over fifty carefully chosen pieces for the considered Bangladeshi
+          gentleman.
         </p>
         <Button
           onClick={() => navigate("/")}

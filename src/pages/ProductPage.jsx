@@ -102,7 +102,7 @@ export default function ProductPage({ onAddToCart }) {
               </span>
             </div>
 
-            <p className="text-3xl font-medium mb-5">${product.price}</p>
+            <p className="text-3xl font-medium mb-5">৳{product.price}</p>
 
             <Separator className="bg-stone-300 mb-5" />
 
@@ -185,7 +185,7 @@ export default function ProductPage({ onAddToCart }) {
             </div>
 
             <p className="text-[11px] text-stone-500 tracking-wide">
-              Free shipping on orders over $250 · Easy returns
+              Free shipping on orders over ৳250 · Easy returns
             </p>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function ProductPage({ onAddToCart }) {
                 <p className="font-display text-base leading-snug text-stone-950 group-hover:text-amber-600 transition-colors">
                   {p.name}
                 </p>
-                <p className="text-sm text-stone-500 mt-0.5">${p.price}</p>
+                <p className="text-sm text-stone-500 mt-0.5">৳{p.price}</p>
               </div>
             ))}
           </div>

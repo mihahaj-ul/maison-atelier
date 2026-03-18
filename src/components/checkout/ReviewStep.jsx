@@ -74,7 +74,7 @@ export default function ReviewStep({
                   </p>
                 </div>
                 <p className="text-sm font-medium text-stone-950 shrink-0">
-                  ${(item.price * item.qty).toFixed(2)}
+                  ৳{(item.price * item.qty).toFixed(2)}
                 </p>
               </div>
               <Separator className="bg-stone-200" />
@@ -86,26 +86,26 @@ export default function ReviewStep({
         <div className="flex flex-col gap-2 pt-4">
           <div className="flex justify-between text-sm text-stone-500">
             <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>৳{subtotal.toFixed(2)}</span>
           </div>
           <div className="flex justify-between text-sm text-stone-500">
             <span>Shipping</span>
             <span>
               {selectedShipping?.price === 0
                 ? "Free"
-                : `$${selectedShipping?.price.toFixed(2)}`}
+                : `৳${selectedShipping?.price.toFixed(2)}`}
             </span>
           </div>
           {discount > 0 && (
             <div className="flex justify-between text-sm text-amber-600">
               <span>Discount</span>
-              <span>-${discount.toFixed(2)}</span>
+              <span>-৳{discount.toFixed(2)}</span>
             </div>
           )}
           <Separator className="bg-stone-200 my-1" />
           <div className="flex justify-between font-medium text-stone-950">
             <span className="text-sm">Total</span>
-            <span className="text-base">${total.toFixed(2)}</span>
+            <span className="text-base">৳{total.toFixed(2)}</span>
           </div>
         </div>
       </div>

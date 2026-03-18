@@ -41,7 +41,7 @@ export default function Header({
     <header className="sticky top-0 z-40 bg-stone-100/90 backdrop-blur-md border-b border-stone-300">
       {/* Promo bar */}
       <div className="bg-stone-950 text-stone-100 text-center py-1.5 px-4 text-[10px] tracking-[0.18em] uppercase">
-        Free Shipping on Orders Over $250
+        Free Delivery on Orders Over ৳5,000
       </div>
 
       <div className="max-w-340 mx-auto px-4 md:px-7">
@@ -52,7 +52,7 @@ export default function Header({
             className="font-display shrink-0 text-left hover:opacity-70 transition-opacity"
           >
             <span className="italic text-xl md:text-2xl font-light tracking-wide block">
-              MAISON
+              RAJA
             </span>
             <span className="block text-[9px] tracking-[0.3em] uppercase text-amber-600 leading-none -mt-0.5">
               Atelier
@@ -201,7 +201,7 @@ export default function Header({
         <SheetContent side="left" className="bg-stone-50 border-stone-300 w-72">
           <SheetHeader className="mb-8">
             <SheetTitle className="font-display font-light text-2xl italic text-left">
-              MAISON{" "}
+              RAJA
               <span className="text-amber-600 text-sm not-italic tracking-widest">
                 Atelier
               </span>
