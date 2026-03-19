@@ -26,7 +26,7 @@ export default function PaymentStep({
             <Input
               value={data.cardName}
               onChange={(e) => onChange("cardName", e.target.value)}
-              placeholder="Isabelle Laurent"
+              placeholder="Abdur Rahman"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </div>

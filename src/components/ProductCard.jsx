@@ -64,8 +64,8 @@ export default function ProductCard({
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xl font-medium text-stone-950">
-            ${product.price.toLocaleString()}
+          <span className="text-xl text-stone-950">
+            ৳{product.price.toLocaleString()}
           </span>
           <Button
             size="sm"

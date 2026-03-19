@@ -31,7 +31,7 @@ export default function ShippingStep({
             <Input
               value={data.firstName}
               onChange={(e) => onChange("firstName", e.target.value)}
-              placeholder="Isabelle"
+              placeholder="Abdur"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -39,7 +39,7 @@ export default function ShippingStep({
             <Input
               value={data.lastName}
               onChange={(e) => onChange("lastName", e.target.value)}
-              placeholder="Laurent"
+              placeholder="Rahman"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -57,7 +57,7 @@ export default function ShippingStep({
               type="tel"
               value={data.phone}
               onChange={(e) => onChange("phone", e.target.value)}
-              placeholder="+33 1 23 45 67 89"
+              placeholder="+880 1700-000000"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -76,7 +76,7 @@ export default function ShippingStep({
             <Input
               value={data.address1}
               onChange={(e) => onChange("address1", e.target.value)}
-              placeholder="12 Rue du Faubourg"
+              placeholder="House 12, Road 6, Block F"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -84,7 +84,7 @@ export default function ShippingStep({
             <Input
               value={data.address2}
               onChange={(e) => onChange("address2", e.target.value)}
-              placeholder="Apartment, suite, etc."
+              placeholder="Banani, Dhaka"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -92,7 +92,7 @@ export default function ShippingStep({
             <Input
               value={data.city}
               onChange={(e) => onChange("city", e.target.value)}
-              placeholder="Paris"
+              placeholder="Dhaka"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -100,7 +100,7 @@ export default function ShippingStep({
             <Input
               value={data.postalCode}
               onChange={(e) => onChange("postalCode", e.target.value)}
-              placeholder="75008"
+              placeholder="1213"
               className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
             />
           </Field>
@@ -167,7 +167,7 @@ export default function ShippingStep({
                 </div>
               </div>
               <span className="text-sm font-medium text-stone-950 shrink-0 ml-4">
-                {method.price === 0 ? "Free" : `$${method.price}`}
+                {method.price === 0 ? "Free" : `৳${method.price}`}
               </span>
             </button>
           ))}

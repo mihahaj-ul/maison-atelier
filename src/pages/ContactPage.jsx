@@ -114,7 +114,7 @@ export default function ContactPage() {
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Isabelle Laurent"
+                  placeholder="Your Name"
                   className="rounded-none border-stone-300 bg-stone-50 focus-visible:ring-amber-600 font-light"
                 />
               </div>

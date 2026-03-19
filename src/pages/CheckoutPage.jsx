@@ -16,23 +16,23 @@ export default function CheckoutPage({ cart, onClearCart }) {
   const [loading, setLoading] = useState(false);
 
   const [shipping, setShipping] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address1: "",
-    address2: "",
-    city: "",
-    postalCode: "",
-    country: "",
+    firstName: "Abdur",
+    lastName: "Rahman",
+    email: "abdur.rahman@gmail.com",
+    phone: "+880 1711-234567",
+    address1: "House 12, Road 6, Block F",
+    address2: "Banani",
+    city: "Dhaka",
+    postalCode: "1213",
+    country: "Bangladesh",
   });
   const [selectedShipping, setSelectedShipping] = useState(SHIPPING_METHODS[0]);
 
   const [payment, setPayment] = useState({
-    cardName: "",
-    cardNumber: "",
-    expiry: "",
-    cvv: "",
+    cardName: "Abdur Rahman",
+    cardNumber: "4242 4242 4242 4242",
+    expiry: "12/27",
+    cvv: "123",
   });
   const [promoInput, setPromoInput] = useState("");
   const [appliedPromo, setAppliedPromo] = useState(null);
