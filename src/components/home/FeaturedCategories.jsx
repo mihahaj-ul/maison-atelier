@@ -2,36 +2,24 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "../../data/products";
 
-const CATEGORY_IMAGES = {
-  "Suits & Blazers":
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-  Shirts:
-    "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80",
-  "Trousers & Chinos":
-    "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80",
-  "Outerwear & Coats":
-    "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80",
-  Footwear:
-    "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80",
-  Accessories:
-    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
-  "Ties & Pocket Squares":
-    "https://images.unsplash.com/photo-1589756823695-278bc923f962?w=600&q=80",
-  "Knitwear & Sweaters":
-    "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
-  "Casual Wear":
-    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
-  "Formal Wear":
-    "https://images.unsplash.com/photo-1611898872015-0571a9e38375?w=600&q=80",
-};
-
-const CATEGORIES = Object.keys(CATEGORY_IMAGES);
+// Get one representative product image per category
+const CATEGORY_DATA = Object.values(
+  PRODUCTS.reduce((acc, product) => {
+    if (!acc[product.category]) {
+      acc[product.category] = {
+        name: product.category,
+        image: product.image,
+      };
+    }
+    return acc;
+  }, {}),
+);
 
 export default function FeaturedCategories() {
   const navigate = useNavigate();
 
   const handleCategoryClick = (cat) => {
-    navigate("/");
+    navigate(`/?category=${encodeURIComponent(cat)}`);
     setTimeout(() => {
       document.getElementById("col")?.scrollIntoView({ behavior: "smooth" });
     }, 100);
@@ -52,16 +40,16 @@ export default function FeaturedCategories() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-          {CATEGORIES.map((cat) => (
+          {CATEGORY_DATA.map((cat) => (
             <button
-              key={cat}
-              onClick={() => handleCategoryClick(cat)}
+              key={cat.name}
+              onClick={() => handleCategoryClick(cat.name)}
               className="group relative overflow-hidden aspect-square cursor-pointer"
             >
               {/* Image */}
               <img
-                src={CATEGORY_IMAGES[cat]}
-                alt={cat}
+                src={cat.image}
+                alt={cat.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
@@ -71,7 +59,7 @@ export default function FeaturedCategories() {
               {/* Label */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <p className="text-stone-50 font-display text-sm md:text-base font-normal text-center leading-snug">
-                  {cat}
+                  {cat.name}
                 </p>
                 <ArrowRight
                   size={14}
