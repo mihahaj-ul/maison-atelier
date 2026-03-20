@@ -1,40 +1,15 @@
 import { useState } from "react";
-import { Plus, Minus, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useNavigate } from "react-router-dom";
 import { FAQS } from "../data/faq";
-
-function FAQItem({ question, answer }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="border-b border-stone-300">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-4 py-4 text-left hover:text-amber-600 transition-colors"
-      >
-        <span className="text-sm font-light tracking-wide text-stone-950 hover:text-amber-600">
-          {question}
-        </span>
-        {open ? (
-          <Minus size={15} className="text-amber-600 shrink-0" />
-        ) : (
-          <Plus size={15} className="text-stone-500 shrink-0" />
-        )}
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-48 pb-4" : "max-h-0"
-        }`}
-      >
-        <p className="text-sm text-stone-500 font-light leading-relaxed">
-          {answer}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default function FAQPage() {
   const navigate = useNavigate();
@@ -71,7 +46,7 @@ export default function FAQPage() {
             <p className="text-[10px] tracking-[0.2em] uppercase text-amber-600 mb-4">
               Categories
             </p>
-            <nav className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible scrollbar-none">
+            <nav className="flex flex-wrap md:flex-col gap-2 overflow-x-auto md:overflow-visible scrollbar-none">
               {FAQS.map((section) => (
                 <button
                   key={section.category}
@@ -100,15 +75,22 @@ export default function FAQPage() {
                   <h2 className="font-display font-light text-2xl md:text-3xl mb-6 text-stone-950">
                     {section.category}
                   </h2>
-                  <div>
-                    {section.items.map((item) => (
-                      <FAQItem
+                  <Accordion type="single" collapsible className="w-full">
+                    {section.items.map((item, index) => (
+                      <AccordionItem
                         key={item.question}
-                        question={item.question}
-                        answer={item.answer}
-                      />
+                        value={`item-${index}`}
+                        className="border-stone-300"
+                      >
+                        <AccordionTrigger className="text-sm font-light text-stone-950 hover:text-amber-600 hover:no-underline text-left py-4">
+                          {item.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-sm text-stone-500 font-light leading-relaxed pb-4">
+                          {item.answer}
+                        </AccordionContent>
+                      </AccordionItem>
                     ))}
-                  </div>
+                  </Accordion>
                 </div>
               ),
             )}
