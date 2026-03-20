@@ -13,6 +13,7 @@ import Bestsellers from "../components/home/Bestsellers";
 import ProductCard from "../components/ProductCard";
 import CartPanel from "../components/CartPanel";
 import FilterSheet from "../components/FilterSheet";
+import InstagramBanner from "../components/home/InstagramBanner";
 import Testimonials from "../components/home/Testimonials";
 import Newsletter from "../components/home/Newsletter";
 import Footer from "../components/Footer";
@@ -317,6 +318,9 @@ export default function HomePage({
           </>
         )}
       </main>
+
+      {/* Instagram */}
+      <InstagramBanner />
 
       {/* Testimonials */}
       <Testimonials />
