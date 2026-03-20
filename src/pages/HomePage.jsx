@@ -7,6 +7,7 @@ import { useWidth } from "../hooks/useWidth";
 import { PRODUCTS, CATEGORIES } from "../data/products";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import NewArrivals from "../components/home/NewArrivals";
 import ProductCard from "../components/ProductCard";
 import CartPanel from "../components/CartPanel";
 import FilterSheet from "../components/FilterSheet";
@@ -86,6 +87,13 @@ export default function HomePage({
 
       {/* Hero */}
       <Hero isMobile={isMobile} />
+
+      {/* New Arrivals */}
+      <NewArrivals
+        onAddToCart={onAddToCart}
+        onToggleWishlist={onToggleWishlist}
+        isWished={isWished}
+      />
 
       {/* Collection */}
       <main
