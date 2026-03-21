@@ -76,7 +76,8 @@ export default function HomePage({
     setVisibleCount(12);
   }, [search, category, sortBy, badgeFilter]);
 
-  const hasFilters = search || category !== "All" || sortBy !== "default";
+  const hasFilters =
+    search || category !== "All" || sortBy !== "default" || badgeFilter;
 
   const cols = isMobile
     ? "grid-cols-2"
@@ -212,6 +213,8 @@ export default function HomePage({
                     setSearch("");
                     setCategory("All");
                     setSortBy("default");
+                    setBadgeFilter(null);
+                    navigate("/", { replace: true });
                   }}
                   className="text-[10px] uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors flex items-center gap-1"
                 >
@@ -277,6 +280,8 @@ export default function HomePage({
                   setSearch("");
                   setCategory("All");
                   setSortBy("default");
+                  setBadgeFilter(null);
+                  navigate("/", { replace: true });
                 }}
                 className="text-[10px] uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors flex items-center gap-1"
               >
